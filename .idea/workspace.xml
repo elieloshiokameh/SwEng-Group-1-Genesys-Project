@@ -5,14 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6cd4147-0189-44b6-8c88-294d2ae13530" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ie/tcd/sweng2024/groupone/api/controller/DiscountController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ie/tcd/sweng2024/groupone/api/model/Discount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ie/tcd/sweng2024/groupone/api/service/DiscountService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ie/tcd/sweng2024/groupone/api/ApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/tcd/sweng2024/groupone/api/ApiApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -39,6 +48,9 @@
         <option name="downloadSourcesAutomatically" value="true" />
       </MavenImportingSettings>
     </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 3
@@ -103,7 +115,7 @@
       <workItem from="1707520429830" duration="66000" />
       <workItem from="1707520550561" duration="15000" />
       <workItem from="1707520570085" duration="166000" />
-      <workItem from="1707520786216" duration="264000" />
+      <workItem from="1707520786216" duration="2732000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit (blank project)">
       <created>1707474574899</created>
