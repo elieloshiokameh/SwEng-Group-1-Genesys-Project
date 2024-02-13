@@ -14,7 +14,7 @@ public class DiscountService {
 
     public DiscountService() {
         exampleDiscounts = new ArrayList<Discount>();
-        Discount discount1 = new Discount(1, "Samsung", "Technology", "Galaxy S24");
+        Discount discount1 = new Discount(1, "Samsung", "Technology", "20% off products");
         Discount discount2 = new Discount(2, "48", "Technology", "Student Contract");
 
         exampleDiscounts.add(discount1);
@@ -29,5 +29,14 @@ public class DiscountService {
             }
         }
         return optional;
+    }
+    public List<Discount> getDiscount(String type) {
+        List<Discount> output = new ArrayList<>();
+        for (Discount discount : exampleDiscounts) {
+            if (discount.getType().equals(type)) {
+                output.add(discount);
+            }
+        }
+        return output;
     }
 }

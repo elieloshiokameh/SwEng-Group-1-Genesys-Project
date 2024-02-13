@@ -8,8 +8,8 @@
         <version>3.2.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>ie.tcd.SwEng2024.GroupOne</groupId>
-    <artifactId>API</artifactId>
+    <groupId>ie.tcd.sweng2024.groupone</groupId>
+    <artifactId>api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>API</name>
     <description>API</description>
