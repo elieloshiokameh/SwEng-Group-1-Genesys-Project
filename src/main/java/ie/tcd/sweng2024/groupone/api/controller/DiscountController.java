@@ -19,7 +19,7 @@ public class DiscountController {
     public DiscountController(DiscountService discountService) {
         this.discountService = discountService;
     }
-    /*
+
     @GetMapping("/discount")
     public Discount getDiscount(@RequestParam Integer id) {
         Optional<Discount> discount = discountService.getDiscount(id);
@@ -28,12 +28,12 @@ public class DiscountController {
         }
         return null;
     }
-    */
-    @GetMapping("/discount")
-    public List<Discount> getDiscount(@RequestParam String type) {
-        List<Discount> discounts = discountService.getDiscount(type);
-        if (!discounts.isEmpty()) {
-            return discounts;
+
+    @GetMapping("/randomDiscount")
+    public Discount getRandomDiscount(@RequestParam String type) {
+        Optional<Discount> discount = discountService.getRandomDiscount(type);
+        if (discount.isPresent()) {
+            return (Discount) discount.get();
         }
         return null;
     }

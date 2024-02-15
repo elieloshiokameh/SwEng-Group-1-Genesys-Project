@@ -19,7 +19,5 @@ public class ApiApplication {
         } catch (IOException e) {
             System.out.println("Could not fetch website!");
         }
-
     }
-
 }

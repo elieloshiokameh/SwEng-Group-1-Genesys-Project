@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 @Service
 public class DiscountService {
@@ -30,13 +31,17 @@ public class DiscountService {
         }
         return optional;
     }
-    public List<Discount> getDiscount(String type) {
-        List<Discount> output = new ArrayList<>();
+    public Optional<Discount> getRandomDiscount(String type) {
+        Optional optional = Optional.empty();
+        List<Discount> discounts = new ArrayList<>();
         for (Discount discount : exampleDiscounts) {
             if (discount.getType().equals(type)) {
-                output.add(discount);
+                discounts.add(discount);
             }
         }
-        return output;
+        Random random = new Random();
+        int index = random.nextInt(0, discounts.size());
+        optional = Optional.of(discounts.get(index));
+        return optional;
     }
 }
