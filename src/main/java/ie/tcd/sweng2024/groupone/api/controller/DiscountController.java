@@ -20,6 +20,8 @@ public class DiscountController {
         this.discountService = discountService;
     }
 
+
+    //Returns a specific discount with correlation to the ID
     @GetMapping("/discount")
     public Discount getDiscount(@RequestParam Integer id) {
         Optional<Discount> discount = discountService.getDiscount(id);
@@ -29,6 +31,7 @@ public class DiscountController {
         return null;
     }
 
+    //returns  a list of discounts based of the type=
     @GetMapping("/randomDiscount")
     public Discount getRandomDiscount(@RequestParam String type) {
         Optional<Discount> discount = discountService.getRandomDiscount(type);
