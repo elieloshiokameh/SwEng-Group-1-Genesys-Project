@@ -22,7 +22,7 @@ public class DiscountService {
 
         Document doc;
         try {
-            doc = Jsoup.connect("https://www.myunidays.com/IE/en-IE/category/technology").get();
+            doc = Jsoup.connect("https://www.myunidays.com/IE/en-IE/category/technology_all-technology-offers").get();
 
             // Get title of the page
             String title = doc.title();
@@ -31,9 +31,12 @@ public class DiscountService {
             // Gets all links on the site
             Elements links = doc.select("a[href]");
             for (Element link : links) {
-                System.out.println("\nLink : " + link.attr("href"));
-                System.out.println("Text : " + link.text());
+                if (link.text().contains("Off") || link.text().contains("Discount") || link.text().contains("Free") || link.text().contains("FREE") || link.text().contains("Save") || link.text().contains("DISCOUNT") || link.text().contains("Trade")){
+                    System.out.println("\nLink : " + link.attr("href"));
+                    System.out.println("Text : " + link.text());
+                }
             }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
