@@ -16,10 +16,10 @@ import org.jsoup.select.Elements;
 @Service
 public class DiscountService {
 
-    private List<Discount> exampleDiscounts;
+    private List<Discount> techDiscounts;
 
     public DiscountService() {
-
+        techDiscounts = new ArrayList<Discount>();
         Document doc;
         try {
             doc = Jsoup.connect("https://www.myunidays.com/IE/en-IE/category/technology_all-technology-offers").get();
@@ -32,8 +32,10 @@ public class DiscountService {
             Elements links = doc.select("a[href]");
             for (Element link : links) {
                 if (link.text().contains("Off") || link.text().contains("Discount") || link.text().contains("Free") || link.text().contains("FREE") || link.text().contains("Save") || link.text().contains("DISCOUNT") || link.text().contains("Trade")){
-                    System.out.println("\nLink : " + link.attr("href"));
-                    System.out.println("Text : " + link.text());
+                    //System.out.println("\nLink : " + link.attr("href"));
+                    //System.out.println("Text : " + link.text());
+                    String[] temp = link.attr("href").split("/");
+                    techDiscounts.add(new Discount(techDiscounts.size(), temp[4], "Technology", link.text()));
                 }
             }
 
@@ -43,20 +45,9 @@ public class DiscountService {
     }
 
 
-
-
-        /*
-        exampleDiscounts = new ArrayList<Discount>();
-        Discount discount1 = new Discount(1, "Samsung", "Technology", "20% off products");
-        Discount discount2 = new Discount(2, "48", "Technology", "Student Contract");
-
-        exampleDiscounts.add(discount1);
-        exampleDiscounts.add(discount2);
-         */
-
     public Optional<Discount> getDiscount(Integer id) {
         Optional optional = Optional.empty();
-        for (Discount discount : exampleDiscounts) {
+        for (Discount discount : techDiscounts) {
             if (id == discount.getId()) {
                 optional = Optional.of(discount);
                 return optional;
@@ -67,7 +58,7 @@ public class DiscountService {
     public Optional<Discount> getRandomDiscount(String type) {
         Optional optional = Optional.empty();
         List<Discount> discounts = new ArrayList<>();
-        for (Discount discount : exampleDiscounts) {
+        for (Discount discount : techDiscounts) {
             if (discount.getType().equals(type)) {
                 discounts.add(discount);
             }

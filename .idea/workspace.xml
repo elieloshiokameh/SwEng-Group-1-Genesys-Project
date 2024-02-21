@@ -7,7 +7,6 @@
     <list default="true" id="b6cd4147-0189-44b6-8c88-294d2ae13530" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ie/tcd/sweng2024/groupone/api/ApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/tcd/sweng2024/groupone/api/ApiApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ie/tcd/sweng2024/groupone/api/controller/DiscountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/tcd/sweng2024/groupone/api/controller/DiscountController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ie/tcd/sweng2024/groupone/api/service/DiscountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/tcd/sweng2024/groupone/api/service/DiscountService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,6 +47,7 @@
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="downloadSourcesAutomatically" value="true" />
+        <option name="workspaceImportForciblyTurnedOn" value="true" />
       </MavenImportingSettings>
     </option>
   </component>
@@ -76,7 +76,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.ApiApplication.executor": "Run",
+    "Spring Boot.ApiApplication.executor": "Debug",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "Backend",
     "kotlin-language-version-configured": "true",
@@ -129,6 +129,10 @@
       <workItem from="1707835389259" duration="5980000" />
       <workItem from="1707906341375" duration="2043000" />
       <workItem from="1707992564546" duration="4092000" />
+      <workItem from="1708347597643" duration="62000" />
+      <workItem from="1708439056909" duration="2450000" />
+      <workItem from="1708526645914" duration="2041000" />
+      <workItem from="1708532287326" duration="453000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit (blank project)">
       <created>1707474574899</created>
