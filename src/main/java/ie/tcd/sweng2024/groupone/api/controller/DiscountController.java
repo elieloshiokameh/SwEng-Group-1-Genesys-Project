@@ -31,12 +31,22 @@ public class DiscountController {
         return null;
     }
 
-    //returns  a list of discounts based of the type=
+    //returns a random discount based of the type
     @GetMapping("/randomDiscount")
     public Discount getRandomDiscount(@RequestParam String type) {
         Optional<Discount> discount = discountService.getRandomDiscount(type);
         if (discount.isPresent()) {
             return (Discount) discount.get();
+        }
+        return null;
+    }
+
+    //returns a list of discounts based of the type
+    @GetMapping("/discountList")
+    public List<Discount> getDiscounts(@RequestParam String type) {
+        List<Discount> discounts = discountService.getDiscounts(type);
+        if (!discounts.isEmpty()) {
+            return discounts;
         }
         return null;
     }

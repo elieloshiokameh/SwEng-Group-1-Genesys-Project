@@ -68,4 +68,14 @@ public class DiscountService {
         optional = Optional.of(discounts.get(index));
         return optional;
     }
+
+    public List<Discount> getDiscounts(String type) {
+        List<Discount> discounts = new ArrayList<>();
+        for (Discount discount : techDiscounts) {
+            if (discount.getType().equals(type)) {
+                discounts.add(discount);
+            }
+        }
+        return discounts;
+    }
 }
