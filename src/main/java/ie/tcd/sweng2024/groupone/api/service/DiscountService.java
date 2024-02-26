@@ -34,8 +34,9 @@ public class DiscountService {
                 if (link.text().contains("Off") || link.text().contains("Discount") || link.text().contains("Free") || link.text().contains("FREE") || link.text().contains("Save") || link.text().contains("DISCOUNT") || link.text().contains("Trade")){
                     //System.out.println("\nLink : " + link.attr("href"));
                     //System.out.println("Text : " + link.text());
-                    String[] temp = link.attr("href").split("/");
-                    techDiscounts.add(new Discount(techDiscounts.size(), temp[4], "Technology", link.text()));
+                    String companyName = link.parent().attr("data-customer-name");
+                    //String[] temp = link.attr("href").split("/");
+                    techDiscounts.add(new Discount(techDiscounts.size(), companyName, "Technology", link.text()));
                 }
             }
 
