@@ -59,11 +59,14 @@ public class DiscountService {
     private List<Discount> sportsAndMediaDiscounts;
     private List<Discount> educationDiscounts;
 
+    private String baseUrl = "https://www.myunidays.com";
     public DiscountService() {
         techDiscounts = new ArrayList<Discount>();
         Document doc;
         try {
-            doc = Jsoup.connect("https://www.myunidays.com/IE/en-IE/category/technology_all-technology-offers").get();
+            String url = "https://www.myunidays.com/IE/en-IE/category/technology_all-technology-offers";
+            doc = Jsoup.connect(url).get();
+
 
             // Get title of the page
             String title = doc.title();
@@ -72,12 +75,20 @@ public class DiscountService {
             // Gets all links on the site
             Elements links = doc.select("a[href]");
             for (Element link : links) {
-                if (link.text().contains("Off") || link.text().contains("Discount") || link.text().contains("Free") || link.text().contains("FREE") || link.text().contains("Save") || link.text().contains("DISCOUNT") || link.text().contains("Trade")) {
+                if (link.text().contains("Off") || link.text().contains("Discount") || link.text().contains("Free") || link.text().contains("FREE") || link.text().contains("Save") || link.text().contains("DISCOUNT") || link.text().contains("Trade") || link.text().contains("Get")) {
                     //System.out.println("\nLink : " + link.attr("href"));
+                    String outputLink;
+                    if (!link.attr("href").contains("www.")){
+                        outputLink = baseUrl+link.attr("href");
+                    }
+                    else {
+                        outputLink = link.attr("href");
+                    }
+                    //System.out.println(outputLink);
                     //System.out.println("Text : " + link.text());
                     String companyName = link.parent().attr("data-customer-name");
                     //String[] temp = link.attr("href").split("/");
-                    techDiscounts.add(new Discount(techDiscounts.size(), companyName, "Technology", link.text()));
+                    techDiscounts.add(new Discount(techDiscounts.size(), companyName, "Technology", link.text(), outputLink));
                 }
             }
 
@@ -88,7 +99,8 @@ public class DiscountService {
         fashionDiscounts = new ArrayList<Discount>();
 
         try {
-            doc = Jsoup.connect("https://www.myunidays.com/IE/en-IE/category/fashion_all-fashion").get();
+            String url = "https://www.myunidays.com/IE/en-IE/category/fashion_all-fashion";
+            doc = Jsoup.connect(url).get();
 
             // Get title of the page
             String title = doc.title();
@@ -97,12 +109,19 @@ public class DiscountService {
             // Gets all links on the site
             Elements links = doc.select("a[href]");
             for (Element link : links) {
-                if (link.text().contains("Off") || link.text().contains("Discount") || link.text().contains("Free") || link.text().contains("FREE") || link.text().contains("Save") || link.text().contains("DISCOUNT") || link.text().contains("Trade")) {
+                if (link.text().contains("Off") || link.text().contains("Discount") || link.text().contains("Free") || link.text().contains("FREE") || link.text().contains("Save") || link.text().contains("DISCOUNT") || link.text().contains("Trade") || link.text().contains("Get")) {
                     //System.out.println("\nLink : " + link.attr("href"));
+                    String outputLink;
+                    if (!link.attr("href").contains("www.")){
+                        outputLink = baseUrl+link.attr("href");
+                    }
+                    else {
+                        outputLink = link.attr("href");
+                    }
                     //System.out.println("Text : " + link.text());
                     String companyName = link.parent().attr("data-customer-name");
                     //String[] temp = link.attr("href").split("/");
-                    fashionDiscounts.add(new Discount(fashionDiscounts.size(), companyName, "Fashion", link.text()));
+                    fashionDiscounts.add(new Discount(fashionDiscounts.size(), companyName, "Fashion", link.text(), outputLink));
                 }
             }
 
@@ -113,7 +132,8 @@ public class DiscountService {
         beautyDiscounts = new ArrayList<Discount>();
 
         try {
-            doc = Jsoup.connect("https://www.myunidays.com/IE/en-IE/category/beauty_all-beauty-offers").get();
+            String url = "https://www.myunidays.com/IE/en-IE/category/beauty_all-beauty-offers";
+            doc = Jsoup.connect(url).get();
 
             // Get title of the page
             String title = doc.title();
@@ -122,12 +142,19 @@ public class DiscountService {
             // Gets all links on the site
             Elements links = doc.select("a[href]");
             for (Element link : links) {
-                if (link.text().contains("Off") || link.text().contains("Discount") || link.text().contains("Free") || link.text().contains("FREE") || link.text().contains("Save") || link.text().contains("DISCOUNT") || link.text().contains("Trade")) {
+                if (link.text().contains("Off") || link.text().contains("Discount") || link.text().contains("Free") || link.text().contains("FREE") || link.text().contains("Save") || link.text().contains("DISCOUNT") || link.text().contains("Trade") || link.text().contains("Get")) {
                     //System.out.println("\nLink : " + link.attr("href"));
+                    String outputLink;
+                    if (!link.attr("href").contains("www.")){
+                        outputLink = baseUrl+link.attr("href");
+                    }
+                    else {
+                        outputLink = link.attr("href");
+                    }
                     //System.out.println("Text : " + link.text());
                     String companyName = link.parent().attr("data-customer-name");
                     //String[] temp = link.attr("href").split("/");
-                    beautyDiscounts.add(new Discount(beautyDiscounts.size(), companyName, "Beauty", link.text()));
+                    beautyDiscounts.add(new Discount(beautyDiscounts.size(), companyName, "Beauty", link.text(), outputLink));
                 }
             }
 
@@ -138,7 +165,8 @@ public class DiscountService {
         lifestyleDiscounts = new ArrayList<Discount>();
 
         try {
-            doc = Jsoup.connect("https://www.myunidays.com/IE/en-IE/category/lifestyle_all-lifestyle-offers").get();
+            String url = "https://www.myunidays.com/IE/en-IE/category/lifestyle_all-lifestyle-offers";
+            doc = Jsoup.connect(url).get();
 
             // Get title of the page
             String title = doc.title();
@@ -147,12 +175,19 @@ public class DiscountService {
             // Gets all links on the site
             Elements links = doc.select("a[href]");
             for (Element link : links) {
-                if (link.text().contains("Off") || link.text().contains("Discount") || link.text().contains("Free") || link.text().contains("FREE") || link.text().contains("Save") || link.text().contains("DISCOUNT") || link.text().contains("Trade")) {
+                if (link.text().contains("Off") || link.text().contains("Discount") || link.text().contains("Free") || link.text().contains("FREE") || link.text().contains("Save") || link.text().contains("DISCOUNT") || link.text().contains("Trade") || link.text().contains("Get")) {
                     //System.out.println("\nLink : " + link.attr("href"));
+                    String outputLink;
+                    if (!link.attr("href").contains("www.")){
+                        outputLink = baseUrl+link.attr("href");
+                    }
+                    else {
+                        outputLink = link.attr("href");
+                    }
                     //System.out.println("Text : " + link.text());
                     String companyName = link.parent().attr("data-customer-name");
                     //String[] temp = link.attr("href").split("/");
-                    lifestyleDiscounts.add(new Discount(lifestyleDiscounts.size(), companyName, "Lifestyle", link.text()));
+                    lifestyleDiscounts.add(new Discount(lifestyleDiscounts.size(), companyName, "Lifestyle", link.text(), outputLink));
                 }
             }
 
@@ -163,7 +198,8 @@ public class DiscountService {
         foodAndDrinkDiscounts = new ArrayList<Discount>();
 
         try {
-            doc = Jsoup.connect("https://www.myunidays.com/IE/en-IE/category/food-and-drink_all-food-and-drink-offers").get();
+            String url = "https://www.myunidays.com/IE/en-IE/category/food-and-drink_all-food-and-drink-offers";
+            doc = Jsoup.connect(url).get();
 
             // Get title of the page
             String title = doc.title();
@@ -172,12 +208,19 @@ public class DiscountService {
             // Gets all links on the site
             Elements links = doc.select("a[href]");
             for (Element link : links) {
-                if (link.text().contains("Off") || link.text().contains("Discount") || link.text().contains("Free") || link.text().contains("FREE") || link.text().contains("Save") || link.text().contains("DISCOUNT") || link.text().contains("Trade")) {
+                if (link.text().contains("Off") || link.text().contains("Discount") || link.text().contains("Free") || link.text().contains("FREE") || link.text().contains("Save") || link.text().contains("DISCOUNT") || link.text().contains("Trade") || link.text().contains("Get")) {
                     //System.out.println("\nLink : " + link.attr("href"));
+                    String outputLink;
+                    if (!link.attr("href").contains("www.")){
+                        outputLink = baseUrl+link.attr("href");
+                    }
+                    else {
+                        outputLink = link.attr("href");
+                    }
                     //System.out.println("Text : " + link.text());
                     String companyName = link.parent().attr("data-customer-name");
                     //String[] temp = link.attr("href").split("/");
-                    foodAndDrinkDiscounts.add(new Discount(foodAndDrinkDiscounts.size(), companyName, "Food & Drink", link.text()));
+                    foodAndDrinkDiscounts.add(new Discount(foodAndDrinkDiscounts.size(), companyName, "Food & Drink", link.text(), outputLink));
                 }
             }
 
@@ -188,7 +231,8 @@ public class DiscountService {
         healthAndFitnessDiscounts = new ArrayList<Discount>();
 
         try {
-            doc = Jsoup.connect("https://www.myunidays.com/IE/en-IE/category/health-and-fitness_all-health-and-fitness-offers").get();
+            String url = "https://www.myunidays.com/IE/en-IE/category/health-and-fitness_all-health-and-fitness-offers";
+            doc = Jsoup.connect(url).get();
 
             // Get title of the page
             String title = doc.title();
@@ -197,12 +241,19 @@ public class DiscountService {
             // Gets all links on the site
             Elements links = doc.select("a[href]");
             for (Element link : links) {
-                if (link.text().contains("Off") || link.text().contains("Discount") || link.text().contains("Free") || link.text().contains("FREE") || link.text().contains("Save") || link.text().contains("DISCOUNT") || link.text().contains("Trade")) {
+                if (link.text().contains("Off") || link.text().contains("Discount") || link.text().contains("Free") || link.text().contains("FREE") || link.text().contains("Save") || link.text().contains("DISCOUNT") || link.text().contains("Trade") || link.text().contains("Get")) {
                     //System.out.println("\nLink : " + link.attr("href"));
+                    String outputLink;
+                    if (!link.attr("href").contains("www.")){
+                        outputLink = baseUrl+link.attr("href");
+                    }
+                    else {
+                        outputLink = link.attr("href");
+                    }
                     //System.out.println("Text : " + link.text());
                     String companyName = link.parent().attr("data-customer-name");
                     //String[] temp = link.attr("href").split("/");
-                    healthAndFitnessDiscounts.add(new Discount(healthAndFitnessDiscounts.size(), companyName, "Health & Fitness", link.text()));
+                    healthAndFitnessDiscounts.add(new Discount(healthAndFitnessDiscounts.size(), companyName, "Health & Fitness", link.text(), outputLink));
                 }
             }
 
@@ -213,7 +264,8 @@ public class DiscountService {
         sportsAndMediaDiscounts = new ArrayList<Discount>();
 
         try {
-            doc = Jsoup.connect("https://www.myunidays.com/IE/en-IE/category/sports-and-media_sports-and-media").get();
+            String url = "https://www.myunidays.com/IE/en-IE/category/sports-and-media_sports-and-media";
+            doc = Jsoup.connect(url).get();
 
             // Get title of the page
             String title = doc.title();
@@ -222,12 +274,19 @@ public class DiscountService {
             // Gets all links on the site
             Elements links = doc.select("a[href]");
             for (Element link : links) {
-                if (link.text().contains("Off") || link.text().contains("Discount") || link.text().contains("Free") || link.text().contains("FREE") || link.text().contains("Save") || link.text().contains("DISCOUNT") || link.text().contains("Trade")) {
+                if (link.text().contains("Off") || link.text().contains("Discount") || link.text().contains("Free") || link.text().contains("FREE") || link.text().contains("Save") || link.text().contains("DISCOUNT") || link.text().contains("Trade") || link.text().contains("Get")) {
                     //System.out.println("\nLink : " + link.attr("href"));
+                    String outputLink;
+                    if (!link.attr("href").contains("www.")){
+                        outputLink = baseUrl+link.attr("href");
+                    }
+                    else {
+                        outputLink = link.attr("href");
+                    }
                     //System.out.println("Text : " + link.text());
                     String companyName = link.parent().attr("data-customer-name");
                     //String[] temp = link.attr("href").split("/");
-                    sportsAndMediaDiscounts.add(new Discount(sportsAndMediaDiscounts.size(), companyName, "Sports and Fitness", link.text()));
+                    sportsAndMediaDiscounts.add(new Discount(sportsAndMediaDiscounts.size(), companyName, "Sports and Fitness", link.text(), outputLink));
                 }
             }
 
@@ -238,7 +297,8 @@ public class DiscountService {
         educationDiscounts = new ArrayList<Discount>();
 
         try {
-            doc = Jsoup.connect("https://www.myunidays.com/IE/en-IE/category/education_all-education-offers").get();
+            String url = "https://www.myunidays.com/IE/en-IE/category/education_all-education-offers";
+            doc = Jsoup.connect(url).get();
 
             // Get title of the page
             String title = doc.title();
@@ -247,12 +307,19 @@ public class DiscountService {
             // Gets all links on the site
             Elements links = doc.select("a[href]");
             for (Element link : links) {
-                if (link.text().contains("Off") || link.text().contains("Discount") || link.text().contains("Free") || link.text().contains("FREE") || link.text().contains("Save") || link.text().contains("DISCOUNT") || link.text().contains("Trade")) {
+                if (link.text().contains("Off") || link.text().contains("Discount") || link.text().contains("Free") || link.text().contains("FREE") || link.text().contains("Save") || link.text().contains("DISCOUNT") || link.text().contains("Trade") || link.text().contains("Get")) {
                     //System.out.println("\nLink : " + link.attr("href"));
+                    String outputLink;
+                    if (!link.attr("href").contains("www.")){
+                        outputLink = baseUrl+link.attr("href");
+                    }
+                    else {
+                        outputLink = link.attr("href");
+                    }
                     //System.out.println("Text : " + link.text());
                     String companyName = link.parent().attr("data-customer-name");
                     //String[] temp = link.attr("href").split("/");
-                    educationDiscounts.add(new Discount(educationDiscounts.size(), companyName, "Education", link.text()));
+                    educationDiscounts.add(new Discount(educationDiscounts.size(), companyName, "Education", link.text(), outputLink));
                 }
             }
 
