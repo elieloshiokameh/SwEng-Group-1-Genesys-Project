@@ -15,7 +15,7 @@ import org.jsoup.select.Elements;
 
 @Service
 public class DiscountService {
-
+    private int totalDiscounts;
     public Optional<Discount> getDiscount(Integer id) {
         Optional optional = Optional.empty();
         for (Discount discount : techDiscounts) {
@@ -29,10 +29,33 @@ public class DiscountService {
     public Optional<Discount> getRandomDiscount(String type) {
         Optional optional = Optional.empty();
         List<Discount> discounts = new ArrayList<>();
-        for (Discount discount : techDiscounts) {
-            if (discount.getType().equals(type)) {
-                discounts.add(discount);
-            }
+        switch (type) {
+            case "Technology":
+                discounts = techDiscounts;
+                break;
+            case "Beauty":
+                discounts = beautyDiscounts;
+                break;
+            case "Fashion":
+                discounts = fashionDiscounts;
+                break;
+            case "Lifestyle":
+                discounts = lifestyleDiscounts;
+                break;
+            case "Education":
+                discounts = educationDiscounts;
+                break;
+            case "Sports & Media":
+                discounts = sportsAndMediaDiscounts;
+                break;
+            case "Health & Fitness":
+                discounts = healthAndFitnessDiscounts;
+                break;
+            case "Food & Drink":
+                discounts = foodAndDrinkDiscounts;
+                break;
+            default:
+                break;
         }
         Random random = new Random();
         int index = random.nextInt(0, discounts.size());
@@ -42,10 +65,33 @@ public class DiscountService {
 
     public List<Discount> getDiscounts(String type) {
         List<Discount> discounts = new ArrayList<>();
-        for (Discount discount : techDiscounts) {
-            if (discount.getType().equals(type)) {
-                discounts.add(discount);
-            }
+        switch (type) {
+            case "Technology":
+                discounts = techDiscounts;
+                break;
+            case "Beauty":
+                discounts = beautyDiscounts;
+                break;
+            case "Fashion":
+                discounts = fashionDiscounts;
+                break;
+            case "Lifestyle":
+                discounts = lifestyleDiscounts;
+                break;
+            case "Education":
+                discounts = educationDiscounts;
+                break;
+            case "Sports & Media":
+                discounts = sportsAndMediaDiscounts;
+                break;
+            case "Health & Fitness":
+                discounts = healthAndFitnessDiscounts;
+                break;
+            case "Food & Drink":
+                discounts = foodAndDrinkDiscounts;
+                break;
+            default:
+                break;
         }
         return discounts;
     }
@@ -61,6 +107,7 @@ public class DiscountService {
 
     private String baseUrl = "https://www.myunidays.com";
     public DiscountService() {
+        totalDiscounts = 0;
         techDiscounts = new ArrayList<Discount>();
         Document doc;
         try {
@@ -70,7 +117,7 @@ public class DiscountService {
 
             // Get title of the page
             String title = doc.title();
-            System.out.println("Title: " + title);
+            System.out.println("Now Getting: " + title);
 
             // Gets all links on the site
             Elements links = doc.select("a[href]");
@@ -88,7 +135,8 @@ public class DiscountService {
                     //System.out.println("Text : " + link.text());
                     String companyName = link.parent().attr("data-customer-name");
                     //String[] temp = link.attr("href").split("/");
-                    techDiscounts.add(new Discount(techDiscounts.size(), companyName, "Technology", link.text(), outputLink));
+                    techDiscounts.add(new Discount(totalDiscounts, companyName, "Technology", link.text(), outputLink));
+                    totalDiscounts++;
                 }
             }
 
@@ -104,7 +152,7 @@ public class DiscountService {
 
             // Get title of the page
             String title = doc.title();
-            System.out.println("Title: " + title);
+            System.out.println("Now Getting: " + title);
 
             // Gets all links on the site
             Elements links = doc.select("a[href]");
@@ -121,7 +169,8 @@ public class DiscountService {
                     //System.out.println("Text : " + link.text());
                     String companyName = link.parent().attr("data-customer-name");
                     //String[] temp = link.attr("href").split("/");
-                    fashionDiscounts.add(new Discount(fashionDiscounts.size(), companyName, "Fashion", link.text(), outputLink));
+                    fashionDiscounts.add(new Discount(totalDiscounts, companyName, "Fashion", link.text(), outputLink));
+                    totalDiscounts++;
                 }
             }
 
@@ -137,7 +186,7 @@ public class DiscountService {
 
             // Get title of the page
             String title = doc.title();
-            System.out.println("Title: " + title);
+            System.out.println("Now Getting: " + title);
 
             // Gets all links on the site
             Elements links = doc.select("a[href]");
@@ -154,7 +203,8 @@ public class DiscountService {
                     //System.out.println("Text : " + link.text());
                     String companyName = link.parent().attr("data-customer-name");
                     //String[] temp = link.attr("href").split("/");
-                    beautyDiscounts.add(new Discount(beautyDiscounts.size(), companyName, "Beauty", link.text(), outputLink));
+                    beautyDiscounts.add(new Discount(totalDiscounts, companyName, "Beauty", link.text(), outputLink));
+                    totalDiscounts++;
                 }
             }
 
@@ -170,7 +220,7 @@ public class DiscountService {
 
             // Get title of the page
             String title = doc.title();
-            System.out.println("Title: " + title);
+            System.out.println("Now Getting: " + title);
 
             // Gets all links on the site
             Elements links = doc.select("a[href]");
@@ -187,7 +237,8 @@ public class DiscountService {
                     //System.out.println("Text : " + link.text());
                     String companyName = link.parent().attr("data-customer-name");
                     //String[] temp = link.attr("href").split("/");
-                    lifestyleDiscounts.add(new Discount(lifestyleDiscounts.size(), companyName, "Lifestyle", link.text(), outputLink));
+                    lifestyleDiscounts.add(new Discount(totalDiscounts, companyName, "Lifestyle", link.text(), outputLink));
+                    totalDiscounts++;
                 }
             }
 
@@ -203,7 +254,7 @@ public class DiscountService {
 
             // Get title of the page
             String title = doc.title();
-            System.out.println("Title: " + title);
+            System.out.println("Now Getting: " + title);
 
             // Gets all links on the site
             Elements links = doc.select("a[href]");
@@ -220,7 +271,8 @@ public class DiscountService {
                     //System.out.println("Text : " + link.text());
                     String companyName = link.parent().attr("data-customer-name");
                     //String[] temp = link.attr("href").split("/");
-                    foodAndDrinkDiscounts.add(new Discount(foodAndDrinkDiscounts.size(), companyName, "Food & Drink", link.text(), outputLink));
+                    foodAndDrinkDiscounts.add(new Discount(totalDiscounts, companyName, "Food & Drink", link.text(), outputLink));
+                    totalDiscounts++;
                 }
             }
 
@@ -236,7 +288,7 @@ public class DiscountService {
 
             // Get title of the page
             String title = doc.title();
-            System.out.println("Title: " + title);
+            System.out.println("Now Getting: " + title);
 
             // Gets all links on the site
             Elements links = doc.select("a[href]");
@@ -253,7 +305,8 @@ public class DiscountService {
                     //System.out.println("Text : " + link.text());
                     String companyName = link.parent().attr("data-customer-name");
                     //String[] temp = link.attr("href").split("/");
-                    healthAndFitnessDiscounts.add(new Discount(healthAndFitnessDiscounts.size(), companyName, "Health & Fitness", link.text(), outputLink));
+                    healthAndFitnessDiscounts.add(new Discount(totalDiscounts, companyName, "Health & Fitness", link.text(), outputLink));
+                    totalDiscounts++;
                 }
             }
 
@@ -269,7 +322,7 @@ public class DiscountService {
 
             // Get title of the page
             String title = doc.title();
-            System.out.println("Title: " + title);
+            System.out.println("Now Getting: " + title);
 
             // Gets all links on the site
             Elements links = doc.select("a[href]");
@@ -286,7 +339,8 @@ public class DiscountService {
                     //System.out.println("Text : " + link.text());
                     String companyName = link.parent().attr("data-customer-name");
                     //String[] temp = link.attr("href").split("/");
-                    sportsAndMediaDiscounts.add(new Discount(sportsAndMediaDiscounts.size(), companyName, "Sports and Fitness", link.text(), outputLink));
+                    sportsAndMediaDiscounts.add(new Discount(totalDiscounts, companyName, "Sports & Media", link.text(), outputLink));
+                    totalDiscounts++;
                 }
             }
 
@@ -302,7 +356,7 @@ public class DiscountService {
 
             // Get title of the page
             String title = doc.title();
-            System.out.println("Title: " + title);
+            System.out.println("Now Getting: " + title);
 
             // Gets all links on the site
             Elements links = doc.select("a[href]");
@@ -319,12 +373,14 @@ public class DiscountService {
                     //System.out.println("Text : " + link.text());
                     String companyName = link.parent().attr("data-customer-name");
                     //String[] temp = link.attr("href").split("/");
-                    educationDiscounts.add(new Discount(educationDiscounts.size(), companyName, "Education", link.text(), outputLink));
+                    educationDiscounts.add(new Discount(totalDiscounts, companyName, "Education", link.text(), outputLink));
+                    totalDiscounts++;
                 }
             }
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println("Found " + (totalDiscounts - 1) + " discounts in total!");
     }
 }
