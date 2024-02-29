@@ -28,4 +28,7 @@ public class Discount {
         return this.productName;
     }
 
+    public String getLinkToPage() {
+        return this.linkToPage;
+    }
 }
