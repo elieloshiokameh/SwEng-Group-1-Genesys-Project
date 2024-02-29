@@ -87,13 +87,13 @@ public class DiscountService {
             case "Education":
                 discounts = educationDiscounts;
                 break;
-            case "Sports and Media":
+            case "Sports-Media":
                 discounts = sportsAndMediaDiscounts;
                 break;
-            case "Health and Fitness":
+            case "Health-Fitness":
                 discounts = healthAndFitnessDiscounts;
                 break;
-            case "Food and Drink":
+            case "Food-Drink":
                 discounts = foodAndDrinkDiscounts;
                 break;
             default:
@@ -123,13 +123,13 @@ public class DiscountService {
             case "Education":
                 discounts = educationDiscounts;
                 break;
-            case "Sports and Media":
+            case "Sports-Media":
                 discounts = sportsAndMediaDiscounts;
                 break;
-            case "Health and Fitness":
+            case "Health-Fitness":
                 discounts = healthAndFitnessDiscounts;
                 break;
-            case "Food and Drink":
+            case "Food-Drink":
                 discounts = foodAndDrinkDiscounts;
                 break;
             default:
