@@ -24,6 +24,48 @@ public class DiscountService {
                 return optional;
             }
         }
+        for (Discount discount : beautyDiscounts) {
+            if (id == discount.getId()) {
+                optional = Optional.of(discount);
+                return optional;
+            }
+        }
+        for (Discount discount : fashionDiscounts) {
+            if (id == discount.getId()) {
+                optional = Optional.of(discount);
+                return optional;
+            }
+        }
+        for (Discount discount : lifestyleDiscounts) {
+            if (id == discount.getId()) {
+                optional = Optional.of(discount);
+                return optional;
+            }
+        }
+        for (Discount discount : educationDiscounts) {
+            if (id == discount.getId()) {
+                optional = Optional.of(discount);
+                return optional;
+            }
+        }
+        for (Discount discount : sportsAndMediaDiscounts) {
+            if (id == discount.getId()) {
+                optional = Optional.of(discount);
+                return optional;
+            }
+        }
+        for (Discount discount : healthAndFitnessDiscounts) {
+            if (id == discount.getId()) {
+                optional = Optional.of(discount);
+                return optional;
+            }
+        }
+        for (Discount discount : foodAndDrinkDiscounts) {
+            if (id == discount.getId()) {
+                optional = Optional.of(discount);
+                return optional;
+            }
+        }
         return optional;
     }
     public Optional<Discount> getRandomDiscount(String type) {
@@ -45,13 +87,13 @@ public class DiscountService {
             case "Education":
                 discounts = educationDiscounts;
                 break;
-            case "Sports & Media":
+            case "Sports and Media":
                 discounts = sportsAndMediaDiscounts;
                 break;
-            case "Health & Fitness":
+            case "Health and Fitness":
                 discounts = healthAndFitnessDiscounts;
                 break;
-            case "Food & Drink":
+            case "Food and Drink":
                 discounts = foodAndDrinkDiscounts;
                 break;
             default:
@@ -81,13 +123,13 @@ public class DiscountService {
             case "Education":
                 discounts = educationDiscounts;
                 break;
-            case "Sports & Media":
+            case "Sports and Media":
                 discounts = sportsAndMediaDiscounts;
                 break;
-            case "Health & Fitness":
+            case "Health and Fitness":
                 discounts = healthAndFitnessDiscounts;
                 break;
-            case "Food & Drink":
+            case "Food and Drink":
                 discounts = foodAndDrinkDiscounts;
                 break;
             default:
