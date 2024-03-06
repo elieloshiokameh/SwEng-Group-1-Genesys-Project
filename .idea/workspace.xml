@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6cd4147-0189-44b6-8c88-294d2ae13530" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatbot/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatbot/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatbot/src/index.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/chatbot/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatbot/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatbot/src/setupTests.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +13,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Backend" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
