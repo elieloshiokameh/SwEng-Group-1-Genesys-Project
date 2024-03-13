@@ -8,7 +8,7 @@ const Navbar = () => {
       <div className="navbar-brand">
         <Link to="/" classname="navbar-logo">DiscountBot
         Jack
-        </Link>
+        </Link >
       </div>
 
       {/* navigation links */}
