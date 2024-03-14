@@ -38,6 +38,10 @@ nav {
   color: black;
   font-size: 1.1rem;
   font-weight: 600;
+  
+  .navbar-cart-link{
+    display: none;
+  }
 }
 .primary-button {
   padding: 0.9rem 1.75rem;
