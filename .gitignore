@@ -30,3 +30,6 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### SQL DB Properties ###
+application.properties
