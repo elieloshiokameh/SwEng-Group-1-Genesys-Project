@@ -423,6 +423,9 @@ public class DiscountService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("Found " + (totalDiscounts - 1) + " discounts in total!");
+        System.out.println("Found " + (totalDiscounts - 1) + " discounts in total from Unidays. Will now fetch society discounts from DB.");
+        DatabaseExtractor extractor = new DatabaseExtractor();
+        List<Discount> societyDiscounts = extractor.getSocietyDiscounts();
+        System.out.println("Found " + societyDiscounts.size() + " society-exclusive discounts!");
     }
 }
