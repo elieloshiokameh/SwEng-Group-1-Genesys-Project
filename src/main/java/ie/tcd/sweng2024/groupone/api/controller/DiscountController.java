@@ -41,6 +41,16 @@ public class DiscountController {
         return null;
     }
 
+    //returns a random society discount based of the type
+    @GetMapping("/randomSocDiscount")
+    public Discount getRandomSocDiscount(@RequestParam String type) {
+        Optional<Discount> discount = discountService.getRandomSocDiscount(type);
+        if (discount.isPresent()) {
+            return (Discount) discount.get();
+        }
+        return null;
+    }
+
     //returns a list of discounts based of the type
     @GetMapping("/discountList")
     public List<Discount> getDiscounts(@RequestParam String type) {

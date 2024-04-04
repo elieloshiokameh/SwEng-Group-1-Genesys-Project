@@ -15,7 +15,21 @@ import org.jsoup.select.Elements;
 
 @Service
 public class DiscountService {
-    private int totalDiscounts;
+    private int totalUnidaysDiscounts;
+
+    private List<Discount> techDiscounts;
+    private List<Discount> fashionDiscounts;
+    private List<Discount> beautyDiscounts;
+    private List<Discount> lifestyleDiscounts;
+    private List<Discount> foodAndDrinkDiscounts;
+    private List<Discount> healthAndFitnessDiscounts;
+    private List<Discount> sportsAndMediaDiscounts;
+    private List<Discount> educationDiscounts;
+    List<Discount> societyDiscounts;
+    private List<Discount> lifestyleSocDiscounts;
+    private List<Discount> foodAndDrinkSocDiscounts;
+    private List<Discount> gamesSocDiscounts;
+
     public Optional<Discount> getDiscount(Integer id) {
         Optional optional = Optional.empty();
         for (Discount discount : techDiscounts) {
@@ -105,6 +119,28 @@ public class DiscountService {
         return optional;
     }
 
+    public Optional<Discount> getRandomSocDiscount(String type) {
+        Optional optional = Optional.empty();
+        List<Discount> discounts = new ArrayList<>();
+        switch (type) {
+            case "Lifestyle":
+                discounts = lifestyleSocDiscounts;
+                break;
+            case "Games":
+                discounts = gamesSocDiscounts;
+                break;
+            case "Food-Drink":
+                discounts = foodAndDrinkSocDiscounts;
+                break;
+            default:
+                break;
+        }
+        Random random = new Random();
+        int index = random.nextInt(0, discounts.size());
+        optional = Optional.of(discounts.get(index));
+        return optional;
+    }
+
     public List<Discount> getDiscounts(String type) {
         List<Discount> discounts = new ArrayList<>();
         switch (type) {
@@ -138,18 +174,9 @@ public class DiscountService {
         return discounts;
     }
 
-    private List<Discount> techDiscounts;
-    private List<Discount> fashionDiscounts;
-    private List<Discount> beautyDiscounts;
-    private List<Discount> lifestyleDiscounts;
-    private List<Discount> foodAndDrinkDiscounts;
-    private List<Discount> healthAndFitnessDiscounts;
-    private List<Discount> sportsAndMediaDiscounts;
-    private List<Discount> educationDiscounts;
-
     private String baseUrl = "https://www.myunidays.com";
     public DiscountService() {
-        totalDiscounts = 0;
+        totalUnidaysDiscounts = 0;
         techDiscounts = new ArrayList<Discount>();
         Document doc;
         try {
@@ -177,8 +204,8 @@ public class DiscountService {
                     //System.out.println("Text : " + link.text());
                     String companyName = link.parent().attr("data-customer-name");
                     //String[] temp = link.attr("href").split("/");
-                    techDiscounts.add(new Discount(totalDiscounts, companyName, "Technology", link.text(), outputLink));
-                    totalDiscounts++;
+                    techDiscounts.add(new Discount(totalUnidaysDiscounts, companyName, "Technology", link.text(), outputLink));
+                    totalUnidaysDiscounts++;
                 }
             }
 
@@ -211,8 +238,8 @@ public class DiscountService {
                     //System.out.println("Text : " + link.text());
                     String companyName = link.parent().attr("data-customer-name");
                     //String[] temp = link.attr("href").split("/");
-                    fashionDiscounts.add(new Discount(totalDiscounts, companyName, "Fashion", link.text(), outputLink));
-                    totalDiscounts++;
+                    fashionDiscounts.add(new Discount(totalUnidaysDiscounts, companyName, "Fashion", link.text(), outputLink));
+                    totalUnidaysDiscounts++;
                 }
             }
 
@@ -245,8 +272,8 @@ public class DiscountService {
                     //System.out.println("Text : " + link.text());
                     String companyName = link.parent().attr("data-customer-name");
                     //String[] temp = link.attr("href").split("/");
-                    beautyDiscounts.add(new Discount(totalDiscounts, companyName, "Beauty", link.text(), outputLink));
-                    totalDiscounts++;
+                    beautyDiscounts.add(new Discount(totalUnidaysDiscounts, companyName, "Beauty", link.text(), outputLink));
+                    totalUnidaysDiscounts++;
                 }
             }
 
@@ -279,8 +306,8 @@ public class DiscountService {
                     //System.out.println("Text : " + link.text());
                     String companyName = link.parent().attr("data-customer-name");
                     //String[] temp = link.attr("href").split("/");
-                    lifestyleDiscounts.add(new Discount(totalDiscounts, companyName, "Lifestyle", link.text(), outputLink));
-                    totalDiscounts++;
+                    lifestyleDiscounts.add(new Discount(totalUnidaysDiscounts, companyName, "Lifestyle", link.text(), outputLink));
+                    totalUnidaysDiscounts++;
                 }
             }
 
@@ -313,8 +340,8 @@ public class DiscountService {
                     //System.out.println("Text : " + link.text());
                     String companyName = link.parent().attr("data-customer-name");
                     //String[] temp = link.attr("href").split("/");
-                    foodAndDrinkDiscounts.add(new Discount(totalDiscounts, companyName, "Food & Drink", link.text(), outputLink));
-                    totalDiscounts++;
+                    foodAndDrinkDiscounts.add(new Discount(totalUnidaysDiscounts, companyName, "Food & Drink", link.text(), outputLink));
+                    totalUnidaysDiscounts++;
                 }
             }
 
@@ -347,8 +374,8 @@ public class DiscountService {
                     //System.out.println("Text : " + link.text());
                     String companyName = link.parent().attr("data-customer-name");
                     //String[] temp = link.attr("href").split("/");
-                    healthAndFitnessDiscounts.add(new Discount(totalDiscounts, companyName, "Health & Fitness", link.text(), outputLink));
-                    totalDiscounts++;
+                    healthAndFitnessDiscounts.add(new Discount(totalUnidaysDiscounts, companyName, "Health & Fitness", link.text(), outputLink));
+                    totalUnidaysDiscounts++;
                 }
             }
 
@@ -381,8 +408,8 @@ public class DiscountService {
                     //System.out.println("Text : " + link.text());
                     String companyName = link.parent().attr("data-customer-name");
                     //String[] temp = link.attr("href").split("/");
-                    sportsAndMediaDiscounts.add(new Discount(totalDiscounts, companyName, "Sports & Media", link.text(), outputLink));
-                    totalDiscounts++;
+                    sportsAndMediaDiscounts.add(new Discount(totalUnidaysDiscounts, companyName, "Sports & Media", link.text(), outputLink));
+                    totalUnidaysDiscounts++;
                 }
             }
 
@@ -415,17 +442,36 @@ public class DiscountService {
                     //System.out.println("Text : " + link.text());
                     String companyName = link.parent().attr("data-customer-name");
                     //String[] temp = link.attr("href").split("/");
-                    educationDiscounts.add(new Discount(totalDiscounts, companyName, "Education", link.text(), outputLink));
-                    totalDiscounts++;
+                    educationDiscounts.add(new Discount(totalUnidaysDiscounts, companyName, "Education", link.text(), outputLink));
+                    totalUnidaysDiscounts++;
                 }
             }
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("Found " + (totalDiscounts - 1) + " discounts in total from Unidays. Will now fetch society discounts from DB.");
+        System.out.println("Found " + (totalUnidaysDiscounts - 1) + " discounts in total from Unidays. Will now fetch society discounts from DB.");
         DatabaseExtractor extractor = new DatabaseExtractor();
-        List<Discount> societyDiscounts = extractor.getSocietyDiscounts();
-        System.out.println("Found " + societyDiscounts.size() + " society-exclusive discounts!");
+        societyDiscounts = extractor.getSocietyDiscounts();
+
+        foodAndDrinkSocDiscounts = new ArrayList<>();
+        lifestyleSocDiscounts = new ArrayList<>();
+        gamesSocDiscounts = new ArrayList<>();
+
+        for (int i = 0; i < societyDiscounts.size(); i++) {
+            if (societyDiscounts.get(i).getType().equals("Food&Drink"))
+                foodAndDrinkSocDiscounts.add(societyDiscounts.get(i));
+            else if (societyDiscounts.get(i).getType().equals("Lifestyle"))
+                lifestyleSocDiscounts.add(societyDiscounts.get(i));
+            else if (societyDiscounts.get(i).getType().equals("Games"))
+                gamesSocDiscounts.add(societyDiscounts.get(i));
+            else {
+                foodAndDrinkSocDiscounts.add(societyDiscounts.get(i));
+                lifestyleSocDiscounts.add(societyDiscounts.get(i));
+                gamesSocDiscounts.add(societyDiscounts.get(i));
+            }
+        }
+        int totalSocDiscounts = foodAndDrinkSocDiscounts.size() + lifestyleSocDiscounts.size() + gamesSocDiscounts.size();
+        System.out.println("Found " + totalSocDiscounts + " society-exclusive discounts!");
     }
 }
