@@ -14,14 +14,16 @@ const Home = () => {
          </div>
          <div className="home-text-section">
            <h1 className="primary-heading">
-             Access your favorite student discounts!
+            Access your favorite student discounts!
            </h1>
              <p className="primary-text">
              Find discounts for food, entertainment, sports, nightlife and  many more!
              </p>
+           <a href = '/discounts' style={{ textDecoration: 'none' }}> 
            <button className="secondary-button">
              Apply discounts now <FiArrowRight />{" "}
            </button>
+           </a> 
          </div>
          <div className="home-image-section">
            <img src={BannerImage} alt="" />

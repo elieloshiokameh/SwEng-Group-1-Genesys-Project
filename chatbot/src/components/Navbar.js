@@ -54,7 +54,10 @@ const Navbar = () => {
         <a href="/cart" className="navbar-cart-link">
           <BsCart2 className="navbar-cart-icon" />
         </a>
-        <button className="primary-button">Apply Discounts</button>
+        <a href = '/discounts' style={{ textDecoration: 'none' }}> 
+        <button className="primary-button">
+          Apply Discounts</button>
+          </a>
       </div>
       <div className="navbar-menu-container">
         <HiOutlineBars3 onClick={() => setOpenMenu(true)} />
