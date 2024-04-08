@@ -100,15 +100,18 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  text-align: center;
+  align-items: center;
 }
 .primary-heading {
+  text-align: center;
   font-size: clamp(2rem, 5vw, 4rem);
   color: #4c4c4c;
   /* line-height: 5rem; */
   max-width: 600px;
 }
 .primary-text {
+  text-align: center;
   font-size: clamp(1rem, 3vw, 1.5rem);
   max-width: 500px;
   color: #6a6a6a;
