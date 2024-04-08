@@ -445,3 +445,17 @@ nav {
     display: none;
   }
 }
+
+
+.contact-photos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px; /* Adjust margin as needed */
+}
+
+.contact-photos img {
+  width: 170px;
+  height: 170px;
+  margin-bottom: 20px; /* Adjust margin as needed */
+}
