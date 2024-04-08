@@ -132,6 +132,9 @@ public class DiscountService {
             case "Food-Drink":
                 discounts = foodAndDrinkSocDiscounts;
                 break;
+            case "All":
+                discounts = societyDiscounts;
+                break;
             default:
                 break;
         }
