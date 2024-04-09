@@ -23,7 +23,7 @@ const About = () => {
              Our bot will help students of Trinity College Dublin avail and explore discounts, deals and offers that in different categories a student might need support in. 
              </p>
              <p className="primary-text">
-             These include technology, restaurants, stationery etc. Our bot currently lets students choose the category they want to find discounts in and displays the link to the code
+             These include technology, restaurants, stationery etc. We also provide resources to avail discounts that your favourite Trinity student socities provide!
              </p>
            
          </div>

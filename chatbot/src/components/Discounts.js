@@ -1,10 +1,13 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import Navbar from './Navbar';
-
+import BannerBackground from "../Assets/home-banner-background.png";
 const Discounts = () => {
   return (
     <div className="home-container">
+      <div className="home-bannerImage-container">
+          <img src={BannerBackground} alt="" />
+        </div>
       <Helmet>
         <script src="https://apps.mypurecloud.ie/genesys-bootstrap/genesys.min.js" type="text/javascript" />
         <script type="text/javascript">

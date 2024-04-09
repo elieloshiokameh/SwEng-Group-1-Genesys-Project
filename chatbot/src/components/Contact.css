@@ -1,15 +1,19 @@
 .contact-photos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-top: 27px; /* Adjust margin as needed */
-  }
-  
-  .contact-photos img {
-    width: calc(20% - 20px); /* Adjust the width as needed */
-    margin: 35px ; /* Adjust margins as needed */
-    padding: 10px; /* Adjust padding as needed */
-    border: 1px solid black;
-    box-sizing: border-box; /* Include padding and border in the width calculation */
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 27px; /* Adjust margin as needed */
+}
+
+.contact-item {
+  width: calc(20% - 20px); /* Adjust the width as needed */
+  margin: 35px; /* Adjust margins as needed */
+  padding: 10px; /* Adjust padding as needed */
+  text-align: center;
+}
+
+.contact-item img {
+  width: 100%;
+  border: 1px solid black;
+  box-sizing: border-box; /* Include padding and border in the width calculation */
+}
