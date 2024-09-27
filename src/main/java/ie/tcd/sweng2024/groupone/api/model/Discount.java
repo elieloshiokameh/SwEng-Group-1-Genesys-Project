@@ -5,12 +5,14 @@ public class Discount {
     private String provider;
     private String type;
     private String productName;
+    private String linkToPage;
 
-    public Discount(int id, String provider, String type, String productName) {
+    public Discount(int id, String provider, String type, String productName, String linkToPage) {
         this.id = id;
         this.provider = provider;
         this.type = type;
         this.productName = productName;
+        this.linkToPage = linkToPage;
     }
 
     public int getId() {
@@ -26,4 +28,7 @@ public class Discount {
         return this.productName;
     }
 
+    public String getLinkToPage() {
+        return this.linkToPage;
+    }
 }
